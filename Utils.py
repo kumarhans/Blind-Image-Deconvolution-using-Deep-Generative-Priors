@@ -276,14 +276,14 @@ def Save_Results(path, x_np, w_np, y_np, y_np_range, x_hat_test, w_hat_test, x_r
         if w_hat_range is not None: w_hat_range = np.clip(w_hat_range, 0,1)
         if y_np_range  is not None: y_np_range  = np.clip(y_np_range, 0,1)
             
-    if x_np        is not None:  imsave(path+'_x_orig.png', (x_np*255).astype('uint8'))
-    if w_np        is not None:  imsave(path+'_w_orig.png', (w_np/w_np.max() * 255).astype('uint8'))
-    if y_np        is not None:  imsave(path+'_y_from_test.png',      (y_np*255).astype('uint8'))
+    if x_np        is not None:  imsave(path+'_Orig.png', (x_np*255).astype('uint8'))
+    if w_np        is not None:  imsave(path+'_Kernel_Orig.png', (w_np/w_np.max() * 255).astype('uint8'))
+    if y_np        is not None:  imsave(path+'_Blurred.png',      (y_np*255).astype('uint8'))
     if y_np_range  is not None:  imsave(path+'_y_from_range.png',     (y_np_range*255).astype('uint8'))
-    if x_hat_test  is not None:  imsave(path+'_x_hat_from_test.png',  (x_hat_test*255).astype('uint8'))
-    if w_hat_test  is not None:  imsave(path+'_w_hat_from_test.png',  (w_hat_test/w_hat_test.max() * 255).astype('uint8'))
+    if x_hat_test  is not None:  imsave(path+'_Algo1.png',  (x_hat_test*255).astype('uint8'))
+    if w_hat_test  is not None:  imsave(path+'_Kernel_Algo1.png',  (w_hat_test/w_hat_test.max() * 255).astype('uint8'))
     if x_range     is not None:  imsave(path+'_x_range.png', (x_range*255).astype('uint8'))
-    if x_hat_range is not None:  imsave(path+'_x_hat_from_range.png', (x_hat_range*255).astype('uint8'))
-    if w_hat_range is not None:  imsave(path+'_w_hat_from_range.png', (w_hat_range/w_hat_range.max() * 255).astype('uint8'))
+    if x_hat_range is not None:  imsave(path+'_New1.png', (x_hat_range*255).astype('uint8'))
+    if w_hat_range is not None:  imsave(path+'_Kernel_New1.png', (w_hat_range/w_hat_range.max() * 255).astype('uint8'))
 
 

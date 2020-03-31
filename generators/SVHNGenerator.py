@@ -101,7 +101,7 @@ class SVHNGenerator():
 if __name__ == "__main__":
     Gen = SVHNGenerator()
     Gen.GenerateModel()
-    Gen.weights_path = '../model weights/svhn.h5'
+    Gen.weights_path = '../../gan_train/vae_customtrained_svhn.h5'
     Gen.LoadWeights()
     vae, encoder, decoder = Gen.GetModels()
     

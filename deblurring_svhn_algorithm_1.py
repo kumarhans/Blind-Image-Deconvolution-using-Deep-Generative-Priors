@@ -23,7 +23,7 @@ IMAGE_RANGE = [0,1]
 def step_size(t):
     return 0.01 * np.exp( - t / 1000 )
 
-SAVE_PATH       = './results/SVHN/deblurring - alg1 - '+str(int(NOISE_STD*100)) + 'perc noise - ' +str(RANDOM_RESTARTS) + 'RR/deblurring_'
+SAVE_PATH       = './results/SVHN/deblurring - alg1 - '+str(int(NOISE_STD*100)) + 'perc noise - ' +str(RANDOM_RESTARTS) + 'RR-VAE/deblurring_'
 # -----------------------------------------------------------------------
 
 # loading test blur kernels
@@ -32,7 +32,9 @@ BLUR_RES = W.shape[1]
 
 # loading svhn test images
 X_Orig = np.array([ imread(path) for path in glob(Orig_Path)]) / 255
+X_Orig = X_Orig[0:5]
 X_Range = np.array([ imread(path) for path in glob(Range_Path)]) / 255
+X_Range = X_Range[0:5]
 IMAGE_RES = X_Orig.shape[1]
 CHANNELS = X_Orig.shape[-1]
 
@@ -137,7 +139,8 @@ for i in range(len(X_Orig)):
                      w_hat_test = W_hat_test[i], 
                      x_range = None, 
                      x_hat_range = X_hat_range[i], 
-                     w_hat_range = W_hat_range[i], clip=True)
+                     w_hat_range = W_hat_range[i], 
+                     clip=True)
 
 
 
