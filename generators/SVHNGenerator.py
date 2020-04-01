@@ -13,7 +13,7 @@ class SVHNGenerator():
         self.Encoder = None
         self.Decoder = None
         self.model = None
-        self.weights_path = './model weights/svhn.h5'
+        self.weights_path = './model weights/vae_customtrained_svhn_extra_im.h5'
 
         
     def GenerateModel(self):
