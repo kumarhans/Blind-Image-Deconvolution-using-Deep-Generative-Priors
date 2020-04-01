@@ -3,7 +3,7 @@ import keras.backend as K
 import numpy as np
 from Utils import *
 from generators.MotionBlurGenerator import *
-from generators.ShoeGenerator import *
+from generators.ShoeGenerator import SVHNganGenerator
 K.set_learning_phase(0)
 from glob import glob
 import os
@@ -25,7 +25,7 @@ def step_size(t):
 
 SAVE_PATH       = './results/Shoes/deblurring - alg1 - ' +str(int(NOISE_STD*100)) + 'perc noise - ' +str(RANDOM_RESTARTS) + 'RR/deblurring_'
 # -----------------------------------------------------------------------
-
+#
 # loading test blur images
 W = np.load(Blur_Path) 
 BLUR_RES = W.shape[1]
