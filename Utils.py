@@ -308,4 +308,26 @@ def Save_Results_Algo_2(path, x_np, w_np, y_np, y_np_range, x_hat_test, w_hat_te
     if x_hat_range is not None:  imsave(path+'_New2.png', (x_hat_range*255).astype('uint8'))
     if w_hat_range is not None:  imsave(path+'_Kernel_New2.png', (w_hat_range/w_hat_range.max() * 255).astype('uint8'))
 
+def Save_Results_Algo_3(path, x_np, w_np, y_np, y_np_range, x_hat_test, w_hat_test, x_range,x_hat_range, w_hat_range, clip=True):
+    if clip:
+        if x_np        is not None: x_np = np.clip(x_np, 0,1)
+        if w_np        is not None: w_np = np.clip(w_np, 0,1)
+        if y_np        is not None: y_np = np.clip(y_np, 0,1)
+        if x_hat_test  is not None: x_hat_test = np.clip(x_hat_test, 0,1)
+        if w_hat_test  is not None: w_hat_test = np.clip(w_hat_test, 0,1)
+        if x_range     is not None: x_range = np.clip(x_range, 0,1)
+        if x_hat_range is not None: x_hat_range = np.clip(x_hat_range, 0,1)
+        if w_hat_range is not None: w_hat_range = np.clip(w_hat_range, 0,1)
+        if y_np_range  is not None: y_np_range  = np.clip(y_np_range, 0,1)
+            
+    if x_np        is not None:  imsave(path+'_Orig.png', (x_np*255).astype('uint8'))
+    if w_np        is not None:  imsave(path+'_Kernel_Orig.png', (w_np/w_np.max() * 255).astype('uint8'))
+    if y_np        is not None:  imsave(path+'_Blurred.png',      (y_np*255).astype('uint8'))
+    if y_np_range  is not None:  imsave(path+'_y_from_range.png',     (y_np_range*255).astype('uint8'))
+    if x_hat_test  is not None:  imsave(path+'_GAN_Algo1.png',  (x_hat_test*255).astype('uint8'))
+    if w_hat_test  is not None:  imsave(path+'_Kernel_GAN_Algo1.png',  (w_hat_test/w_hat_test.max() * 255).astype('uint8'))
+    if x_range     is not None:  imsave(path+'_x_range.png', (x_range*255).astype('uint8'))
+    if x_hat_range is not None:  imsave(path+'_GAN_Algo2.png', (x_hat_range*255).astype('uint8'))
+    if w_hat_range is not None:  imsave(path+'_Kernel_GAN_Algo2.png', (w_hat_range/w_hat_range.max() * 255).astype('uint8'))
+
 
