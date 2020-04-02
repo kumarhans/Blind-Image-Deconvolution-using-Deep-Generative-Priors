@@ -3,7 +3,7 @@ import keras.backend as K
 import numpy as np
 from Utils import *
 from generators.MotionBlurGenerator import *
-from generators.ShoeGenerator import SVHNganGenerator
+from generators.ShoeGenerator import *
 K.set_learning_phase(0)
 from glob import glob
 import os
